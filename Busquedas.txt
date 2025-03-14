@@ -1,0 +1,41 @@
+public class Main {
+    public static void main(String[] args) {
+        int array [] = {9, 7, 2, 6, 1, 8};
+        System.out.println("El numero 1 esta en la posicion: " + buscar(1, array));
+
+        int array2 [] = {1, 2, 3, 4, 5, 6};
+        System.out.println("El numero 3 esta en la posicion: " + buscar (3, array2));
+
+    }
+
+    public static int buscar (int elemento, int array[]){
+        for(int i = 0; i < array.length; i++){
+            if (array [i] == elemento){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //busqueda binaria
+    public static int buscarB (int elemento, int array[]){
+        int inicio = 0;
+        int fin = array.length - 1;
+
+        while(inicio <= fin){
+            int medio = inicio + (fin - inicio) / 2;
+            if (array[medio] == elemento){
+                return medio;
+            }
+            if (array[medio] < elemento){
+                inicio = medio + 1;
+            }else {
+                fin = medio - 1;
+            }
+        }
+        return - 1;
+    }
+
+}
+
+Las búsquedas secuenciales consisten en recorrer una estructura de datos comparando cada elemento con el valor buscado, si el elemento buscado se encuentra al inicio, el tiempo de búsqueda será muy corto, pero será cada vez más largo mientras el elemento se encuentre más cerca del final o no se encuentre
